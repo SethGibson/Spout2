@@ -15,6 +15,7 @@
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>SpoutLibrary</RootNamespace>
     <ProjectName>SpoutLibrary</ProjectName>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -42,14 +43,14 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>$(ProjectDir)..\..\..\..\build\$(ProjectName)\$(PlatformToolset)\$(Configuration)\</OutDir>
+    <IntDir>$(OutDir)obj\</IntDir>
     <TargetName>Spout</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
-    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>$(ProjectDir)..\..\..\..\build\$(ProjectName)\$(PlatformToolset)\$(Configuration)\</OutDir>
+    <IntDir>$(OutDir)obj\</IntDir>
     <TargetName>SpoutLibrary</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -59,7 +60,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>SPOUT_BUILD_DLL;WIN32;_DEBUG;_WINDOWS;_USRDLL;SPOUTSDK_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\..\..\SpoutSDK\Source;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\..\SpoutSDK\Source;..\Include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -76,7 +77,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>SPOUT_BUILD_DLL;NDEBUG;_WINDOWS;_USRDLL;SPOUTSDK_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\..\..\SpoutSDK\Source;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\..\SpoutSDK\Source;..\Include</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -98,7 +99,7 @@
     <ClCompile Include="..\..\SpoutSenderMemory.cpp" />
     <ClCompile Include="..\..\SpoutSenderNames.cpp" />
     <ClCompile Include="..\..\SpoutSharedMemory.cpp" />
-    <ClCompile Include="SpoutLibrary.cpp" />
+    <ClCompile Include="..\Source\SpoutLibrary.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Spout.h" />
@@ -113,7 +114,6 @@
     <ClInclude Include="..\..\SpoutSenderMemory.h" />
     <ClInclude Include="..\..\SpoutSenderNames.h" />
     <ClInclude Include="..\..\SpoutSharedMemory.h" />
-    <ClInclude Include="SpoutLibrary.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\..\Spout.ico" />

@@ -40,3 +40,4 @@ Binaries
 *.db
 *.opendb
 .vs
+build
